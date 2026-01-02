@@ -1,41 +1,32 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
-
-# dependencies
+# Expo/React Native
 node_modules/
-
-# Expo
 .expo/
 dist/
-web-build/
-expo-env.d.ts
+npm-debug.*
+yarn-debug.*
+yarn-error.*
 
-# Native
-.kotlin/
-*.orig.*
+# Firebase e Variáveis de Ambiente
+# Nunca envie chaves privadas ou ficheiros de configuração sensíveis
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ficheiros de Build e Sistema
+.DS_Store
+Thumbs.db
+*.log
+
+# Expo Go e Builds Nativas
+ios/
+android/
 *.jks
 *.p8
 *.p12
 *.key
 *.mobileprovision
 
-# Metro
-.metro-health-check*
-
-# debug
-npm-debug.*
-yarn-debug.*
-yarn-error.*
-
-# macOS
-.DS_Store
-*.pem
-
-# local env files
-.env*.local
-
-# typescript
-*.tsbuildinfo
-
-# generated native folders
-/ios
-/android
+# Cache
+.cache/
