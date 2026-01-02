@@ -1,57 +1,55 @@
-import React from 'react';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable } from 'react-native';
+import { Tabs } from 'expo-router';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import Colors from '@/constants/Colors';
-import { useColorScheme } from '@/components/useColorScheme';
-import { useClientOnlyValue } from '@/components/useClientOnlyValue';
-
-// You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+export default function LayoutAbas() {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
-      }}>
+    <Tabs screenOptions={{ tabBarActiveTintColor: '#1A73E8' }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          headerShown: false,
+          title: 'Resumo',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="car" size={28} color={color} />,
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="abastecimento"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerShown: false,
+          title: 'Abastecer',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="gas-station" size={28} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="novoVeiculo"
+        options={{
+          href: null, // Esconde a aba
+          headerShown: false,
+          title: 'Veículos',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="car" size={28} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="manutencao"
+        options={{
+          headerShown: false,
+          title: 'Manutenção',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="wrench" size={28} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="perfil"
+        options={{
+          headerShown: false,
+          title: 'Perfil',
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="account-circle" size={28} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="gerenciarVeiculos"
+        options={{
+          href: null, // Escondido da barra de abas
+          headerShown: false,
         }}
       />
     </Tabs>
