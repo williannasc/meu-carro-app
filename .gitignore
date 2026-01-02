@@ -7,7 +7,7 @@ yarn-debug.*
 yarn-error.*
 
 # Firebase e Variáveis de Ambiente
-# Nunca envie chaves privadas ou ficheiros de configuração sensíveis
+
 .env
 .env.local
 .env.development.local
